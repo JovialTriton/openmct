@@ -20,58 +20,28 @@
  * at runtime from the About dialog for additional information.
  *****************************************************************************/
 
+define(['./TelemetryTableComponent'], function (TelemetryTableComponent) {
+    function TelemetryTableViewProvider(openmct) {
+        return {
+            key: 'vue-table',
+            name: 'Telemetry Table',
+            editable: true,
+            canView: function (domainObject) {
+                return domainObject.type === 'vue-table';
+            },
+            view: function (domainObject) {
+                return {
+                    show: function (element) {
+                        let component = TelemetryTableComponent(domainObject, element, openmct);
 
-    .mct-sizing-table {
-        z-index: -1;
-        visibility: hidden;
-        position: absolute !important;
-
-        //Add some padding to allow for decorations such as limits indicator
-        td {
-            padding-right: 15px;
-            padding-left: 10px;
-            white-space: nowrap;
-        }
-    }
-
-    .mct-table {
-        tr {
-            display: flex; // flex-flow defaults to row nowrap (which is what we want) so no need to define
-            height: 18px; // Needed when a row has empty values in its cells
-            align-items: stretch;
-        }
-
-        td, th {
-            box-sizing: border-box;
-            display: block;
-            flex: 1 0 auto;
-            white-space: nowrap;
-        }
-
-        thead {
-            display: block;
-        }
-
-        tbody {
-            tr {
-                position: absolute;
-            }
-
-            td {
-                overflow: hidden;
+                    }, 
+                    destroy: function () {}
+                }
+            },
+            priority: function () {
+                return 1;
             }
         }
     }
-
-mct-table {
-    .l-control-bar {
-        margin-bottom: 3px;
-    }
-}
-
-.mct-table-scroll-forcer {
-    // Force horz scroll when needed; width set via JS
-    font-size: 0;
-    height: 1px; // Height 0 won't force scroll properly
-    position: relative;
-}
+    return TelemetryTableViewProvider;
+});
