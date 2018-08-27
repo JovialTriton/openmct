@@ -23,7 +23,7 @@
  define([
     'lodash',
     'vue',
-    'text!./table-configuration.html',
+    './table-configuration.html',
     './TelemetryTableConfiguration'
 ],function (
     _,

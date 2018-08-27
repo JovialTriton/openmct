@@ -21,7 +21,7 @@
  *****************************************************************************/
 
  define([
-    'text!./telemetry-table-row.html',
+    './telemetry-table-row.html',
 ],function (
     TelemetryTableRowTemplate
 ) {

@@ -23,7 +23,7 @@
  define([
     'lodash',
     'vue',
-    'text!./telemetry-table.html',
+    './telemetry-table.html',
     './TelemetryTable',
     './TelemetryTableRowComponent',
     '../../exporters/CSVExporter'
