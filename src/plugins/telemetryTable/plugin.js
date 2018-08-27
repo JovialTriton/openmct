@@ -33,7 +33,7 @@
         return function install(openmct) {
             openmct.objectViews.addProvider(new TelemetryTableViewProvider(openmct));
             openmct.inspectorViews.addProvider(new TableConfigurationViewProvider(openmct));
-            openmct.types.addType('vue-table', TelemetryTableType());
+            openmct.types.addType('table', TelemetryTableType());
         };
     };
  });

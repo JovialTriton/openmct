@@ -1,4 +1,4 @@
-<div class="tabular-holder l-sticky-headers has-control-bar" :class="{'loading': loading}">
+<div class="tabular-holder l-sticky-headers has-control-bar l-telemetry-table" :class="{'loading': loading}">
     <div class="l-control-bar">
         <a class="s-button t-export icon-download labeled"
            v-on:click="exportAsCSV()"
@@ -33,6 +33,10 @@
     </div>
     <!-- Content table -->
     <div v-on:scroll="scroll()" class="l-tabular-body t-scrolling vscroll--persist">
+        <div class="mct-table-scroll-forcer"
+            :style="{
+                width: totalWidth
+            }"></div>
         <table class="mct-table js-telemetry-table" :style="{ height: totalHeight + 'px', 'max-width': totalWidth + 'px'}">
             <tbody>
                 <telemetry-table-row v-for="(row, rowIndex) in visibleRows" 

@@ -1,11 +1,11 @@
-* Delete old table
-* Update new table type and test backward compatibility.
+* Table styles are screwed up since rebase. Looks like there were some changes made to use flex layout.
 * re-evaluate TableConfiguration object. Name doesn't make sense right now, and some duplicated code for configuration handling in components.
-* Rebase over refactor branch
-* Move css to new table location
 * Test (see list of issues below)
 * Push WIP PR
 
+* [X] Rebase over refactor branch
+* [X] Update new table type and test backward compatibility.
+* [X] Delete old table
 * [X] Remove column sizing rows on object removal (should be trivial since tracking by object ID already).
 * [X] Look at optimizing styles in telemetry-table-row
    - Right now profiling does not highlight this as a bottleneck?
@@ -41,16 +41,20 @@
 * 1 million rows in 11 secs vs 90s
 
 To Test
+* Test https://github.com/nasa/openmct/pull/2111
 * Multiple instances of tables
 * Make sure time columns are being correctly merged
 * Test with MSL data sources
 * Test with tutorial data sources
+* Test backward compatibility with existing tables, esp. ones with column config.
 * Behavior at different widths.
 * Short tables
 * Test with bounds / clock / time system changes.
 * Memory leaks
 
 Post WIP PR
+* Move css to new table location
+* Consider making telemetry-table-row component a single file component
 * Fix jitter on auto-scroll
 * Look at scroll-x again. Sounded like there might be some subtlety missing there (something to do with small columns?).
 * Split TelemetryTableComponent into more components. It's too large now.

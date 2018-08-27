@@ -23,11 +23,11 @@
 define(['./TelemetryTableComponent'], function (TelemetryTableComponent) {
     function TelemetryTableViewProvider(openmct) {
         return {
-            key: 'vue-table',
+            key: 'table',
             name: 'Telemetry Table',
             editable: true,
             canView: function (domainObject) {
-                return domainObject.type === 'vue-table';
+                return domainObject.type === 'table';
             },
             view: function (domainObject) {
                 let component;
